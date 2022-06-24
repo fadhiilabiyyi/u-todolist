@@ -44,7 +44,7 @@
                             <form action="{{ route('destroy', $task->id) }}" method="post" class="d-inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="badge bg-danger border-0">
+                                <button type="submit" class="badge bg-danger border-0" onclick="return confirm('Anda yakin ingin menghapus tugas ini ?')">
                                     <i class="bi bi-trash3"></i>
                                 </button>
                             </form>
