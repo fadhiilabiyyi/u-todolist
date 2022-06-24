@@ -28,16 +28,15 @@ class TaskController extends Controller
         return redirect('/dashboard')->with('success', 'Tugas berhasil ditambahkan!');
     }
 
-    public function update(Request $request)
+    public function update(Request $request, Task $task)
     {
         $rules = [
-            'task_name' => 'required',
             'finished' => 'required',
         ];
 
         $validateRequest = $request->validate($rules);
 
-        Task::where('id', $request->id)->update($validateRequest, $request->id);
+        Task::where('id', $task->id)->update($validateRequest);
 
         return redirect('/dashboard')->with('success', 'Tugas berhasil di-update!');
     }

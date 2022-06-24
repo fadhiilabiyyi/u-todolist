@@ -21,5 +21,5 @@ Route::get('/', function () {
 Route::controller(TaskController::class)->group(function() {
     Route::get('/dashboard', 'index');
     Route::post('/dashboard', 'store')->name('store');
-    Route::post('/dashboard/edit', 'update')->name('update');
-});
+    Route::put('/dashboard/{task:id}', 'update')->name('update');
+}); 
