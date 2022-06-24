@@ -5,6 +5,14 @@
         <h1 class="text-center mb-3">Tugas Hari Ini</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">
+
+                @if (session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
                 <table class="table table-hover">
                     <!-- Show all datas -->
                     <thead>
