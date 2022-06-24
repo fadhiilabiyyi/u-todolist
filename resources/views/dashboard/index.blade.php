@@ -29,10 +29,16 @@
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="finished" value="1">
-                                <button type="submit" class="badge bg-success border-0"><i class="bi bi-check2-circle"></i></button>
+                                <button type="submit" class="badge bg-success border-0" @if ($task->finished) disabled @endif>
+                                    <i class="bi bi-check2-circle"></i>
+                                </button>
                             </form>
-                            <form action="" class="d-inline">
-                                <a href="" class="b-inline"><i class="bi bi-trash3"></i></a>
+                            <form action="{{ route('destroy', $task->id) }}" method="post" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="badge bg-danger border-0">
+                                    <i class="bi bi-trash3"></i>
+                                </button>
                             </form>
                             </td>
                         </tr>

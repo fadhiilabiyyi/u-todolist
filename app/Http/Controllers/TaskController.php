@@ -40,4 +40,11 @@ class TaskController extends Controller
 
         return redirect('/dashboard')->with('success', 'Tugas berhasil di-update!');
     }
+
+    public function destroy(Task $task)
+    {
+        Task::destroy($task->id);
+
+        return redirect('/dashboard')->with('success', 'Tugas berhasil dihapus!');
+    }
 }
